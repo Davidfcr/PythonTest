@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block base_content %}
+<section>
+		<div>
+			<h1>Servicios API en JSON</h1>
+			<br/>
+			<h2>Consultar coleccion Articulos</h2>
+			<form action="{% url 'article_collection' %}" method="get">
+				<input type="submit" value="Consultar" />
+			</form>
+
+			<br/><br/>
+
+			<h2>Consultar coleccion Tiendas</h2>
+			<form action="{% url 'store_collection' %}" method="get">
+				<input type="submit" value="Consultar" />
+			</form>
+
+			<br/><br/>
+
+			<h2>Consultar Articulos por Tienda</h2>
+			<form action="#" method="get">
+				<input id='idstore' type="text" name="id" placeholder="Tienda" onchange="pkstore()" />
+				<a id="linkstore" href="">Consultar</a>
+			</form>
+		</div>
+</section>
+<br/>
+<section>
+    <div>
+        <h1>Servicios API en XML</h1>
+        <br/>
+        <h2>Consultar coleccion Articulos</h2>
+        <form action="{% url 'article_collection_xml' %}" method="get">
+            <input type="submit" value="Consultar" />
+        </form>
+
+        <br/><br/>
+
+        <h2>Consultar coleccion Tiendas</h2>
+        <form action="{% url 'store_collection_xml' %}" method="get">
+            <input type="submit" value="Consultar" />
+        </form>
+
+        <br/><br/>
+
+        <h2>Consultar Articulos por Tienda</h2>
+        <form action="#" method="get">
+            <input id='idstorexml' type="text" name="id" placeholder="Tienda" onchange="pkstorexml()" />
+            <a id="linkstorexml" href="">Consultar</a>
+        </form>
+    </div>
+</section>
+		<script type="text/javascript">
+			function pkstore(){
+				idvalue = document.getElementById('idstore').value;
+				if (idstore != ""){
+					a = document.getElementById('linkstore');
+					a.href = '/services/article/'+idvalue+'/';
+				}
+			}
+
+			function pkstorexml(){
+				idvalue = document.getElementById('idstorexml').value;
+				if (idstorexml != ""){
+					a = document.getElementById('linkstorexml');
+					a.href = '/services/articlexml/'+idvalue+'/';
+				}
+			}
+		</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block base_content %}
+<section>
+	<h1>Articulos</h1>
+	<p><a href="{% url 'crudstorecreate' %}">Insertar nuevo articulo</a></p>
+	<ul>
+	{% for item in table_list %}
+		<li>{{ item.id }} :
+			<ul>
+				<li>{{ item.name }}</li>
+				<li>{{ item.address }}</li>
+			</ul>
+		</li>
+		<li><a href="{% url 'crudstoreupdate' pk=item.id %}">Modificar</a></li>
+		<li><a href="{% url 'crudstoredelete' pk=item.id %}">Borrar</a></li>
+		<br/><br/>
+	{% endfor %}
+	</ul>
+</section>
+
+{% endblock %}

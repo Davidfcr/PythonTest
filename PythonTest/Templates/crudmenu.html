@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block base_content %}
+
+<section>
+	<h1>Mantenimiento de Tablas</h1>
+	<p>Seleccione el mantenimiento a utilizar</p>
+
+    <h2>Articulos</h2>
+    <a href="{% url 'crudselect' table='article' %}">Consultar</a>
+    <br/><br/>
+    <h2>Tiendas</h2>
+    <a href="{% url 'crudselect' table='store' %}">Consultar</a>
+
+</section>
+
+{% endblock %}

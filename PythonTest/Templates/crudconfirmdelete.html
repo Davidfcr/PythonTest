@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block base_content %}
+<section>
+    <form method="post">{% csrf_token %}
+            Seguro que desea eliminar el elemento "{{ object }}" ?
+        <input type="submit" value="Enviar" />
+    </form>
+</section>
+{% endblock %}

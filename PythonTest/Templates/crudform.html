@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block base_content %}
+<section>
+    <form method="post">{% csrf_token %}
+		{{ form.as_p }}
+	<p>
+		{% if messages %}
+	        {% for message in messages %}
+	            <span id="{{message.tags}}">{{ message }}</span>
+	        {% endfor %}
+	    {% endif %}
+	</p>
+	<input type="submit" value="Enviar" name="send"/>
+	</form>
+</section>
+{% endblock %}
